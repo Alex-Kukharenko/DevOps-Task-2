@@ -1,0 +1,22 @@
+services:
+  quotes-service:
+    build: ./quotes-service
+
+  backend:
+    build: ./backend
+    environment:
+      QUOTES_SERVICE_HOST: http://quotes-service:3005
+    depends_on:
+      - quotes-service
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8443:443"
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend

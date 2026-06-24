@@ -1,0 +1,14 @@
+{
+  "name": "quotes-service",
+  "version": "1.0.0",
+  "description": "Quotes-service",
+  "main": "quotes-service.js",
+  "scripts": {
+    "start": "node quotes-service.js"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
