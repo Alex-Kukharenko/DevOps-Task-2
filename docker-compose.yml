@@ -1,22 +1,19 @@
 services:
   quotes-service:
     build: ./quotes-service
+    networks:
+      - quote-net
 
   backend:
     build: ./backend
+    container_name: quote-backend 
     environment:
       QUOTES_SERVICE_HOST: http://quotes-service:3005
     depends_on:
       - quotes-service
+    networks:
+      - quote-net  
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "8443:443"
-      - "8080:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./nginx/certs:/etc/nginx/certs:ro
-      - ./frontend:/usr/share/nginx/html:ro
-    depends_on:
-      - backend
+networks:
+  quote-net:
+    external: true         
