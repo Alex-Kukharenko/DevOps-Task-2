@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Цитата дня</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <main class="card">
-    <p class="eyebrow">Цитата дня</p>
-
-    <blockquote id="quote-text" class="quote">
-      Нажми «Новая цитата», чтобы начать
-    </blockquote>
-    <p id="quote-author" class="author"></p>
-
-    <button id="refresh-btn" class="btn">Новая цитата</button>
-    <p id="status" class="status"></p>
-
-    <section class="stats">
-      <p>Показано раз: <span id="view-count">0</span></p>
-      <h2>История последних цитат</h2>
-      <ul id="history-list" class="history"></ul>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Nginx + Node.js + Docker Compose</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

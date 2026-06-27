@@ -6,7 +6,9 @@ services:
 
   backend:
     build: ./backend
-    container_name: quote-backend 
+    container_name: quote-backend
+    ports:
+      - "4000:3000"
     environment:
       QUOTES_SERVICE_HOST: http://quotes-service:3005
     depends_on:
@@ -16,4 +18,4 @@ services:
 
 networks:
   quote-net:
-    external: true         
+    external: true 
