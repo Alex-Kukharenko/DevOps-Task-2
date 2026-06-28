@@ -91,3 +91,11 @@
   font-size: 13px;
   color: #d1d5db;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 8px 15px;
+  text-transform: uppercase;
+}
+

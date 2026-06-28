@@ -1,0 +1,9 @@
+stages:
+  - install
+
+npm ci:
+  stage: install
+  image: node:24-alpine
+  script:
+    - cd frontend
+    - npm ci

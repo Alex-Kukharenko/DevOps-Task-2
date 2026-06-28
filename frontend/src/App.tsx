@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 type Quote = {
@@ -46,31 +46,39 @@ export default function App() {
     }
   }
 
+  useEffect(() => {
+    loadQuote()
+  }, [])
+
   return (
-    <main className="card">
-      <p className="eyebrow">Цитата дня</p>
+    <>
+      <main className="card">
+        <p className="eyebrow">Цитата дня</p>
 
-      <blockquote className="quote">
-        {quote ? `«${quote.text}»` : 'Нажми «Новая цитата», чтобы начать'}
-      </blockquote>
-      {quote && <p className="author">— {quote.author}</p>}
+        <blockquote className="quote">
+          {quote ? `«${quote.text}»` : 'Нажми «Новая цитата», чтобы начать'}
+        </blockquote>
+        {quote && <p className="author">— {quote.author}</p>}
 
-      <button className="btn" onClick={loadQuote} disabled={isLoading}>
-        Новая цитата
-      </button>
-      {error && <p className="status">Ошибка: {error}</p>}
+        <button className="btn" onClick={loadQuote} disabled={isLoading}>
+          Новая цитата
+        </button>
+        {error && <p className="status">Ошибка: {error}</p>}
 
-      <section className="stats">
-        <p>Показано раз: {viewCount}</p>
-        <h2>История последних цитат</h2>
-        <ul className="history">
-          {history.map((item) => (
-            <li key={item.viewedAt}>
-              «{item.text}» — {item.author}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </main>
+        <section className="stats">
+          <p>Показано раз: {viewCount}</p>
+          <h2>История последних цитат</h2>
+          <ul className="history">
+            {history.map((item) => (
+              <li key={item.viewedAt}>
+                «{item.text}» — {item.author}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+      <footer className="footer eyebrow">React, Docker, Nginx</footer>
+    </>
   )
 }
+
